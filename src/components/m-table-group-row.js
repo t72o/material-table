@@ -129,12 +129,12 @@ export default class MTableGroupRow extends React.Component {
             icons={this.props.icons}
           >
             <IconButton
-              style={{ transition: 'all ease 200ms', ...this.rotateIconStyle(this.props.groupData.isExpanded) }}
+              style={{ transition: 'all ease 200ms', ...this.rotateIconStyle(!this.props.icons.DetailPanelOpen && this.props.groupData.isExpanded) }}
               onClick={(event) => {
                 this.props.onGroupExpandChanged(this.props.path);
               }}
             >
-              <this.props.icons.DetailPanel />
+              {this.props.icons.DetailPanelOpen && this.props.groupData.isExpanded ? <this.props.icons.DetailPanelOpen/> : <this.props.icons.DetailPanel />}
             </IconButton>
             <b>{title}{separator}</b>
           </this.props.components.Cell>

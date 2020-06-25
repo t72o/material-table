@@ -88,13 +88,13 @@ export default class MTableBodyRow extends React.Component {
         <TableCell size={size} padding="none" key="key-detail-panel-column" style={{ width: 42, textAlign: 'center', ...this.props.options.detailPanelColumnStyle }}>
           <IconButton
             size={size}
-            style={{ transition: 'all ease 200ms', ...this.rotateIconStyle(this.props.data.tableData.showDetailPanel) }}
+            style={{ transition: 'all ease 200ms', ...this.rotateIconStyle(!this.props.icons.DetailPanelOpen && this.props.data.tableData.showDetailPanel) }}
             onClick={(event) => {
               this.props.onToggleDetailPanel(this.props.path, this.props.detailPanel);
               event.stopPropagation();
             }}
           >
-            <this.props.icons.DetailPanel />
+            {this.props.icons.DetailPanelOpen && this.props.data.tableData.showDetailPanel ? this.props.icons.DetailPanelOpen : <this.props.icons.DetailPanel />}
           </IconButton>
         </TableCell>
       );
@@ -116,6 +116,10 @@ export default class MTableBodyRow extends React.Component {
               if (isOpen) {
                 if (panel.openIcon) {
                   iconButton = <CustomIcon icon={panel.openIcon} iconProps={panel.iconProps} />;
+                  animation = false;
+                }
+                else if (this.props.icons.DetailPanelOpen) {
+                  iconButton = <this.props.icons.DetailPanelOpen />;
                   animation = false;
                 }
                 else if (panel.icon) {
@@ -167,14 +171,14 @@ export default class MTableBodyRow extends React.Component {
             style={{
               transition: 'all ease 200ms',
               marginLeft: this.props.level * 9,
-              ...this.rotateIconStyle(this.props.data.tableData.isTreeExpanded)
+              ...this.rotateIconStyle(!this.props.icons.DetailPanelOpen && this.props.data.tableData.isTreeExpanded)
             }}
             onClick={(event) => {
               this.props.onTreeExpandChanged(this.props.path, this.props.data);
               event.stopPropagation();
             }}
           >
-            <this.props.icons.DetailPanel />
+            {this.props.icons.DetailPanelOpen && this.props.data.tableData.isTreeExpanded ? <this.props.icons.DetailPanelOpen/> : <this.props.icons.DetailPanel />}
           </IconButton>
         </TableCell>
       );

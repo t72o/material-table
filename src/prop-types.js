@@ -99,6 +99,7 @@ export const propTypes = {
     Clear: PropTypes.oneOfType([PropTypes.element, PropTypes.func, RefComponent]),
     Delete: PropTypes.oneOfType([PropTypes.element, PropTypes.func, RefComponent]),
     DetailPanel: PropTypes.oneOfType([PropTypes.element, PropTypes.func, RefComponent]),
+    DetailPanelOpen: PropTypes.oneOfType([PropTypes.element, PropTypes.func, RefComponent]),
     Edit: PropTypes.oneOfType([PropTypes.element, PropTypes.func, RefComponent]),
     Export: PropTypes.oneOfType([PropTypes.element, PropTypes.func, RefComponent]),
     Filter: PropTypes.oneOfType([PropTypes.element, PropTypes.func, RefComponent]),
