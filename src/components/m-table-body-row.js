@@ -161,7 +161,7 @@ export default class MTableBodyRow extends React.Component {
     const size = CommonValues.elementSize(this.props);
     if (this.props.data.tableData.childRows && this.props.data.tableData.childRows.length > 0) {
       return (
-        <TableCell size={size} padding="none" key={"key-tree-data-column"} style={{ width: 48 + 9 * (this.props.treeDataMaxLevel - 2) }}>
+        <TableCell size={size} padding="none" key={"key-tree-data-column"} style={{ width: 48 }}>
           <IconButton
             size={size}
             style={{
